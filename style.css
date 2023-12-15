@@ -1,0 +1,58 @@
+body {
+  font-family: 'Roboto';
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  margin: 40px 0;
+  border-style: solid;
+  border-color: #ccc;
+  border-width: 3px;
+}
+
+header {
+  background-color: #000;
+  margin-bottom:45px;
+  padding: 15px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+header button {
+  all: unset;
+  font-size: 27px;
+  background-color: #fff;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+header button:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.content {
+  padding: 0 20px;
+}
+
+.content p:first-child {
+  padding-bottom: 15px;
+  border-bottom: 5px solid #ccc;
+}

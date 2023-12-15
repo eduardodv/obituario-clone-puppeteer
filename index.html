@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <title>Obituário</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="container">
+    <header>
+      <button id="minus" onclick="handleChangeFontSize('minus')">-</button>
+      <h1>Obituário</h1>
+      <button id="plus" onclick="handleChangeFontSize('plus')">+</button>
+    </header>
+    <div class="content"></div>
+  </div>
+  <script>
+    (async() => {
+      const response = await fetch('./data.json')
+      const data = await response.json()
+
+      document.querySelector('#container .content').innerHTML = data
+    })()
+
+    function handleChangeFontSize(value) {
+      const content = document.querySelector('.content');
+      const fontSize = parseFloat(getComputedStyle(content).fontSize);
+
+      // console.log(fontSize);
+          
+      if(value === 'plus') {
+        content.style.fontSize = `${fontSize + 2}px`;
+      } else {
+        content.style.fontSize = `${fontSize - 2}px`;
+      }
+
+      if (fontSize <= 16) {
+        document.querySelector('#minus').disabled = true
+      } else {
+        document.querySelector('#minus').disabled = false
+      }
+
+      if (fontSize >= 30) {
+        document.querySelector('#plus').disabled = true
+      } else {
+        document.querySelector('#plus').disabled = false
+      }
+
+      
+    }
+  </script>
+</body>
+</html>
